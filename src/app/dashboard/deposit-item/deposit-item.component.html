@@ -1,0 +1,25 @@
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">
+        Deposit to {{items[0].name}}
+      </h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form (ngSubmit)="onSubmit($event)">
+            <div class="form-group">
+                <label for="amount">How much to deposit?</label>
+                <input [(ngModel)]="default" type="number" class="form-control input-number" min="1" name="userDeposit" required>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-outline-dark" (click)="c('Save Click')">Save</button>
+            </div>
+        </form>
+    </div>    
+</ng-template>
+  
+<li class="nav-item">
+    <a class="nav-link" (click)="open(content)" href="#" [ngClass]="(choice>0)?'active':'disabled'">Deposit Item</a>
+</li> 

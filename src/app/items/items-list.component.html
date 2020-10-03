@@ -1,0 +1,28 @@
+<table class="table table-hover text-center">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">
+          <select [(ngModel)]="selectedItem" (ngModelChange)="onItemSelect($event)">
+            <option [value]='0'>All</option>
+            <option *ngFor='let select of selects'>
+              {{ select.id }}
+            </option>
+        </select>
+      </th>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Amount</th>
+    </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let item of items">
+      
+      <td scope="col"></td>
+      <td scope="col">{{ item.id }}</td>
+      <td scope="col">{{ item.name }}</td>
+      <td scope="col">{{ item.description }}</td>
+      <td scope="col">{{ item.amount }}</td>
+  </tr>
+</tbody>
+</table>
